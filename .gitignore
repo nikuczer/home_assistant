@@ -1,11 +1,23 @@
+# Secrets
 secrets.yaml
+
+# Base de données et logs
 home-assistant_v2.db*
 home-assistant.log*
+*.log
+
+# Cache et fichiers runtime
+.cache/
 deps/
 tts/
 .cloud/
 .storage/
+.ha_run.lock
+
+# Zigbee2MQTT - données runtime
 zigbee2mqtt/database.db
 zigbee2mqtt/coordinator_backup.json
 zigbee2mqtt/state.json
 zigbee2mqtt/log/
+zigbee2mqtt/migration-4-to-5.log
+zigbee2mqtt/configuration_backup_v4.yaml

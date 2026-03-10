@@ -20,20 +20,6 @@
       entity_id: switch.1001fedc66_1
   mode: single
 
-- id: '1000000000001'
-  alias: Backup hebdomadaire
-  description: 'Sauvegarde automatique chaque dimanche à 3h'
-  triggers:
-  - trigger: time
-    at: '03:00:00'
-  conditions:
-  - condition: time
-    weekday:
-    - sun
-  actions:
-  - action: backup.create_automatic
-    data: {}
-  mode: single
 
 - id: '1764050002018'
   alias: VMC off

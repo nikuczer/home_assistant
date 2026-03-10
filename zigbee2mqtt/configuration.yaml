@@ -1,0 +1,59 @@
+version: 5
+mqtt:
+  base_topic: zigbee2mqtt
+  server: mqtt://core-mosquitto:1883
+  user: addons
+  password: daethoo9ieJah3eiNgooNoh0Bahnee4aetieJae3shiefahshaingoo9eet1noon
+serial:
+  baudrate: 115200
+  rtscts: false
+  port: >-
+    /dev/serial/by-id/usb-Itead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_V2_36d9db58ae49ef11a237d68cff00cc63-if00-port0
+  adapter: ezsp
+advanced:
+  log_level: info
+  channel: 11
+  network_key:
+    - 12
+    - 159
+    - 247
+    - 112
+    - 222
+    - 139
+    - 100
+    - 233
+    - 121
+    - 209
+    - 61
+    - 125
+    - 135
+    - 50
+    - 246
+    - 242
+  pan_id: 55188
+  ext_pan_id:
+    - 39
+    - 236
+    - 63
+    - 29
+    - 6
+    - 207
+    - 114
+    - 130
+ota:
+  update_check_interval: 1440  # vérification quotidienne (minutes)
+  disable_automatic_update_check: false
+frontend:
+  enabled: true
+  port: 8099
+homeassistant:
+  enabled: true
+devices:
+  '0x08ddebfffea498c3':
+    friendly_name: Bureau
+  '0xd44867fffe2a5f33':
+    friendly_name: Chambre
+  '0x08ddebfffea564a0':
+    friendly_name: Cuisine
+  '0x08ddebfffea57b6a':
+    friendly_name: Salle de bain

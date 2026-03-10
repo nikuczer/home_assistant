@@ -1,0 +1,64 @@
+- id: '1764049722804'
+  alias: VMC on
+  description: 'Allume la VMC si humidité élevée (SDB ou cuisine) ou montée rapide'
+  triggers:
+  - trigger: numeric_state
+    entity_id: sensor.salle_de_bain_humidity
+    above: 70
+  - trigger: numeric_state
+    entity_id: sensor.0x08ddebfffea564a0_humidity
+    above: 70
+  - trigger: numeric_state
+    entity_id: sensor.dhumidite_sdb
+    above: 5
+  conditions: []
+  actions:
+  - action: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.1001fedc66_1
+  mode: single
+
+- id: '1000000000001'
+  alias: Backup hebdomadaire
+  description: 'Sauvegarde automatique chaque dimanche à 3h'
+  triggers:
+  - trigger: time
+    at: '03:00:00'
+  conditions:
+  - condition: time
+    weekday:
+    - sun
+  actions:
+  - action: backup.create_automatic
+    data: {}
+  mode: single
+
+- id: '1764050002018'
+  alias: VMC off
+  description: 'Éteint la VMC quand humidité revenue à la normale dans SDB et cuisine'
+  triggers:
+  - trigger: numeric_state
+    entity_id: sensor.salle_de_bain_humidity
+    below: 65
+  - trigger: numeric_state
+    entity_id: sensor.0x08ddebfffea564a0_humidity
+    below: 65
+  conditions:
+  - condition: numeric_state
+    entity_id: sensor.salle_de_bain_humidity
+    below: 65
+  - condition: numeric_state
+    entity_id: sensor.0x08ddebfffea564a0_humidity
+    below: 65
+  - condition: state
+    entity_id: switch.1001fedc66_1
+    state: 'on'
+  actions:
+  - action: switch.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.1001fedc66_1
+  mode: single

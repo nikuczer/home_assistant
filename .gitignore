@@ -1,0 +1,11 @@
+secrets.yaml
+home-assistant_v2.db*
+home-assistant.log*
+deps/
+tts/
+.cloud/
+.storage/
+zigbee2mqtt/database.db
+zigbee2mqtt/coordinator_backup.json
+zigbee2mqtt/state.json
+zigbee2mqtt/log/
